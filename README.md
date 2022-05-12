@@ -11,12 +11,13 @@ npm i --save graphql awilix knex pg
 npm i --save koa @koa/router koa-graphql
 ```
 
-## Migrations
+## Migrations & Startup
 
 ```shell
 cd src/
 npx knex migrate:latest
 npx knex seed:run
+npm start dev
 ```
 
 ## CRUD
