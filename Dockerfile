@@ -6,6 +6,7 @@ RUN npm ci
 COPY . /app
 
 ENV APP_ENV="development"
+RUN npm config set registry https://registry.npm.taobao.org
 RUN npx knex migrate:latest --knexfile=./src/knexfile.js
 RUN npx knex seed:run --knexfile=./src/knexfile.js
 
