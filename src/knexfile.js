@@ -6,11 +6,9 @@
 module.exports = {
 
   development: {
-    client: 'postgresql',
+    client: 'sqlite3',
     connection: {
-      database: 'book_store',
-      user:     'postgres',
-      password: ''
+      filename: '/tmp/book_store.sqlite'
     },
     pool: {
       min: 2,
@@ -21,16 +19,14 @@ module.exports = {
   staging: {
     client: 'postgresql',
     connection: {
-      database: 'my_db',
-      user:     'username', password: 'password'
+      database: 'book_store',
+      user:     'postgres',
+      password: ''
     },
     pool: {
       min: 2,
       max: 10
     },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
   },
 
   production: {
