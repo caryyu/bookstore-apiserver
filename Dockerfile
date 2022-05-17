@@ -7,6 +7,7 @@ RUN npm config set registry https://registry.npm.taobao.org
 RUN npm ci
 
 FROM node:14-alpine
+WORKDIR /app
 COPY . /app
 COPY --from=build /app/node_modules/ /app/node_modules/
 ENV APP_ENV="development"
