@@ -12,6 +12,7 @@
   "dependencies": {
     "@koa/router": "^10.1.1",
     "awilix": "^7.0.3",
+    "dd-trace": "^2.7.1",
     "graphql": "^16.5.0",
     "knex": "^2.0.0",
     "koa": "^2.13.4",
