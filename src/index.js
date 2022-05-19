@@ -1,6 +1,13 @@
 const ddtracer = require('dd-trace').init();
-ddtracer.use('graphql', {depth: 0});
+ddtracer.use('graphql', {
+  depth: 0, 
+  hooks: {
+    validate: (span) => span.setTag('manual.drop', true),
+    parse: (span) => span.setTag('manual.drop', true),
+  },
+});
 ddtracer.use('koa', {enabled: false, blocklist: ['/'], middleware: false});
+ddtracer.use('fs', {enabled: false});
 
 const awilix = require('awilix');
 const Koa = require('koa');
