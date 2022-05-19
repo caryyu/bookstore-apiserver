@@ -1,6 +1,6 @@
 const ddtracer = require('dd-trace').init();
 ddtracer.use('graphql', {depth: 0});
-ddtracer.use('koa', {blocklist: ['/'], middleware: false});
+ddtracer.use('koa', {enabled: false, blocklist: ['/'], middleware: false});
 
 const awilix = require('awilix');
 const Koa = require('koa');
