@@ -1,4 +1,7 @@
 const ddtracer = require('dd-trace').init();
+ddtracer.use('graphql', {depth: 0});
+ddtracer.use('koa', {blocklist: ['/'], middleware: false});
+
 const awilix = require('awilix');
 const Koa = require('koa');
 const Router = require('@koa/router');
@@ -9,10 +12,6 @@ const {BookController} = require('./controller')
 const knex = require('knex');
 const knexfile = require('./knexfile');
 
-// DataDog Configuration
-ddtracer.use('graphql', {
-  depth: 0
-});
 
 // IoC Container Init
 const container = awilix.createContainer();
