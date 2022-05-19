@@ -11,13 +11,13 @@ class BookController {
 
   async createBook({input}) {
     let {title, author, price} = input;
-    let result = await this.knex('books').insert({title, author, price}).returning('*');
+    let result = await this.knex('books').insert({title, author, price}, '*');
     return result.length > 0 && result[0];
   }
 
   async updateBook({id, input}) {
     let {title, author, price} = input;
-    let result = await this.knex('books').where({id}).update({title, author, price}).returning('*');
+    let result = await this.knex('books').where({id}).update({title, author, price}, '*');
     return result.length > 0 && result[0];
   }
 
