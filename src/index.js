@@ -8,6 +8,7 @@ ddtracer.use('graphql', {
 });
 ddtracer.use('koa', {enabled: false, blocklist: ['/'], middleware: false});
 ddtracer.use('fs', {enabled: false});
+ddtracer.use('http', {enabled: false});
 
 const awilix = require('awilix');
 const Koa = require('koa');
