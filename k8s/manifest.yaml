@@ -13,6 +13,21 @@ spec:
         app: caryyu-app
     spec:
       containers:
+      - env:
+        - name: POSTGRES_DB
+          value: book_store
+        - name: POSTGRES_PASSWORD
+          value: postgres
+        image: postgres:14
+        imagePullPolicy: IfNotPresent
+        name: db
+        resources:
+          limits:
+            cpu: 50m
+            memory: 50Mi
+          requests:
+            cpu: 50m
+            memory: 50Mi
       - name: app
         image: caryyu/bookstore-apiserver:latest
         ports:

@@ -21,7 +21,7 @@ module.exports = {
     connection: {
       database: 'book_store',
       user:     'postgres',
-      password: ''
+      password: 'postgres'
     },
     pool: {
       min: 2,

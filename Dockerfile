@@ -10,8 +10,6 @@ FROM node:14-alpine
 WORKDIR /app
 COPY . /app
 COPY --from=build /app/node_modules/ /app/node_modules/
-ENV APP_ENV="development"
-RUN npx knex migrate:latest --knexfile=./src/knexfile.js
-RUN npx knex seed:run --knexfile=./src/knexfile.js
+ENV APP_ENV="staging"
 EXPOSE 5000
-CMD ["node", "src/index"]
+CMD ["npm", "start"]

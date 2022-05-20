@@ -1,11 +1,15 @@
 {
   "name": "bookstore-apiserver",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "An example project",
+  "main": "src/index.js",
+  "private": "true",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "APP_ENV=development node-dev src/index.js"
+    "dev": "APP_ENV=development node-dev .",
+    "migrate": "knex migrate:latest --knexfile=./src/knexfile.js",
+    "seed": "knex seed:run --knexfile=./src/knexfile.js",
+    "start": "npm run migrate && npm run seed && node ."
   },
   "author": "",
   "license": "MIT",
